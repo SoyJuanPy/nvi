@@ -1,0 +1,199 @@
+#  ███████╗██╗  ██╗██╗  ██╗██╗  ██╗██████╗ ██████╗  ██████╗
+#  ██╔════╝╚██╗██╔╝██║  ██║██║ ██╔╝██╔══██╗██╔══██╗██╔════╝
+#  ███████╗ ╚███╔╝ ███████║█████╔╝ ██║  ██║██████╔╝██║
+#  ╚════██║ ██╔██╗ ██╔══██║██╔═██╗ ██║  ██║██╔══██╗██║
+#  ███████║██╔╝ ██╗██║  ██║██║  ██╗██████╔╝██║  ██║╚██████╗
+#  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝
+#	z0mbi3			https://github.com/gh0stzk/dotfiles
+#
+
+# Mostrar ayuda
+F1
+	OpenApps --KeyHelp
+
+#|||----- Aplicaciones -----|||#
+
+# Abrir Terminal (alacritty)
+super + Return
+	OpenApps --terminal
+
+# Abrir Terminal flotante
+super + alt + Return
+	OpenApps --floating
+
+# Menú de aplicaciones
+super + @space
+	OpenApps --menu
+
+#####
+
+# Aplicaciones (navegador, editor, administrador de archivos)
+shift + alt + {b,g,n}
+	OpenApps {--browser,--editor,--filemanager}
+
+# Aplicaciones de terminal (ranger, nvim, ncmpcpp)
+shift + alt + {r,v,k}
+	OpenApps {--ranger,--nvim,--music}
+
+# Control de sonido (Pavucontrol)
+shift + alt + p
+	OpenApps --soundcontrol
+
+
+#|||----- Atajos de sistema -----|||#
+
+# Selector de temas
+alt + @space
+	RiceSelector
+
+# Selector de terminal
+super + alt + t
+	Term --selecterm
+
+# jgmenu
+~button3
+  xqp 0 $(xdo id -N Bspwm -n root) && jgmenu --csv-file=~/.config/bspwm/src/config/jgmenu.txt --config-file=~/.config/bspwm/src/config/jgmenurc
+
+# Scratchpad
+super + alt + o
+	tdrop -a -w 70% -h 35% -y 0 -x 15%  --class scratch alacritty --class=scratch
+
+# Apagar, Reiniciar, Cerrar sesión, Bloquear pantalla, Cerrar una aplicación
+ctrl + super + alt + {p,r,q,l,k}
+	{systemctl poweroff, systemctl reboot, bspc quit, ScreenLocker, xkill}
+
+# Ocultar/Mostrar Barra (Polybar y/o eww)
+super + alt + {h,u}
+	HideBar {-h,-u}
+
+# Cambiar la transparencia de la ventana enfocada
+ctrl + alt + {plus,minus,t}
+	picom-trans {-c -o +3,-c -o -1,-c -d}
+
+# Fondo de pantalla aleatorio
+super + alt + w
+	WallSelect
+
+# Montar teléfonos Android
+super + alt + a
+	OpenApps --android
+
+# Gestor de red
+super + alt + n
+	OpenApps --netmanager
+
+# Portapapeles
+super + alt + c
+	OpenApps --clipboard
+
+# Captura de pantalla
+super + alt + s
+	OpenApps --screenshot
+
+# Bluetooth
+super + alt + b
+	OpenApps --bluetooth
+
+# Menú de energía
+super + alt + p
+	OpenApps --powermenu
+
+# Selector de distribución de teclado
+super + alt + k
+	OpenApps --keyboard
+
+# Administrar brillo
+XF86MonBrightness{Up,Down}
+    sh Brightness {up,down}
+
+# Control de volumen
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	Volume{ --inc, --dec, --toggle}
+
+# Control de música
+XF86Audio{Next,Prev,Play,Stop}
+	MediaControl {--next,--previous,--toggle,--stop}
+
+
+#|||----- Atajos de Bspwm -----|||#
+
+# Recargar BSPWM
+super + alt + r
+	bspc wm -r
+
+# Cerrar y matar
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# Recargar atajos
+super + Escape
+	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/src/assets/reload.svg 'sxhkd' '¡El archivo de configuración se ha recargado con éxito!'
+
+#####
+
+# Alternar entre diseño en mosaico y monocle
+super + m
+	bspc desktop -l next
+
+# Configurar el estado de la ventana
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Configurar las banderas del nodo
+ctrl + alt {m,x,s,p}
+	bspc node -g {marked,locked,sticky,private}
+
+# Ocultar/Mostrar ventana
+ctrl + alt + h
+	BspHideNode
+
+####>#
+
+# Rotar escritorio
+super + r
+	bspc node @/ --rotate {90,-90}
+
+# Cambiar el foco del nodo o intercambiar nodos
+super + {_,ctrl + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Cambiar de espacio de trabajo
+super + shift + {Left,Right}
+	bspc desktop -f {prev,next}.local
+
+# Foco o enviar al escritorio especificado
+super + {_,alt + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Enviar nodo enfocado al espacio de trabajo en dirección especificada
+super + alt + {Left,Right}
+	bspc node -d {prev,next} '--follow'
+
+# Enfocar el último nodo/escritorio
+super + {comma,Tab}
+	bspc {node,desktop} -f last
+
+#####
+
+# Preseleccionar la dirección
+super + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Cancelar la preselección para el nodo enfocado
+super + alt + space
+	bspc node -p cancel
+
+#####
+
+# Expandir una ventana
+ctrl + alt {Left,Down,Up,Right}
+	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
+
+# Contraer una ventana
+ctrl + shift + alt + {Left,Down,Up,Right}
+	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
+
+# Mover una ventana flotante
+alt + shift {Left,Down,Up,Right}
+	bspc node -v {-10 0,0 10,0 -10,10 0}
+

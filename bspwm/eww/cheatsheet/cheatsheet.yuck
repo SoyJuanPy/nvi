@@ -1,0 +1,260 @@
+;; Author : gh0st
+;; Dotfiles : https://github.com/gh0stzk/dotfiles
+;; Show a cheatsheet for the bspwm environment.
+;;
+
+
+(defwidget cheatsheet []
+  (box :class "cheatsheet" :orientation "v" :space-evenly "false"
+    (top)
+    (content)
+  )
+)
+
+
+(defwidget top []
+  (box  :class ""
+        :orientation "v"
+        :spacing 0
+        :space-evenly "false"
+    (label  :class "title"
+            :xalign 0.5
+            :text " ██████ ██   ██ ███████  █████  ████████     ███████ ██   ██ ███████ ███████ ████████
+██      ██   ██ ██      ██   ██    ██        ██      ██   ██ ██      ██         ██
+██      ███████ █████   ███████    ██        ███████ ███████ █████   █████      ██
+██      ██   ██ ██      ██   ██    ██             ██ ██   ██ ██      ██         ██
+ ██████ ██   ██ ███████ ██   ██    ██        ███████ ██   ██ ███████ ███████    ██")
+    (label  :class "title-info"
+            :yalign 0
+            :text "(Presiona f1 para cerrar)")
+
+  )
+)
+
+
+(defwidget content []
+  (box :class "content" :orientation "h" :spacing 20 :space-evenly "true"
+  (box :orientation "v" :space-evenly "false" :spacing 2
+    (box :orientation "h" :space-evenly "true"
+      (label :class "category-bspwm" :xalign 0.5 :text "Bspwm")
+      (label :text ""))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Asignación de teclas")
+      (label :class "keys-alt" :xalign 1 :text "F1"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Reiniciar BSPWM")
+      (label :class "keys-alt" :xalign 1 :text "Super + Alt + r"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Recargar sxhkd daemon")
+      (label :class "keys-alt" :xalign 1 :text "Super + Esc"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "category-system" :xalign 0.5 :text "Sistema Base")
+      (label :text ""))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Terminal")
+      (label :class "keys-alt" :xalign 1 :text "Super + Enter"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Terminal flotante")
+      (label :class "keys-alt" :xalign 1 :text "Super + Alt + Enter"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Menú de aplicaciones")
+      (label :class "keys-alt" :xalign 1 :text "Super + Barra espaciadora"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Selector de temas")
+      (label :class "keys-alt" :xalign 1 :text "Alt + Barra espaciadora"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Selector de fondo de pantalla")
+      (label :class "keys-alt" :xalign 1 :text "Super + Alt + w"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Selector de terminal")
+      (label :class "keys-alt" :xalign 1 :text "Super + Alt + t"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "category-workspaces" :xalign 0.5 :text "Espacios de trabajo")
+      (label :text ""))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Cambiar entre espacios de trabajo")
+      (label :class "keys-alt" :xalign 1 :text "Super +  "))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Cambiar a espacio de trabajo específico")
+      (label :class "keys-alt" :xalign 1 :text "Super + 1-9"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Rotar espacio de trabajo")
+      (label :class "keys-alt" :xalign 1 :text "Super + r"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "category-preselection" :xalign 0.5 :text "Preselección")
+      (label :text ""))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Preseleccionar dirección")
+      (label :class "keys-alt" :xalign 1 :text "Super + {h,j,k,l}"))
+    (box :orientation "h" :space-evenly "true"
+      (label :class "keys" :xalign 0 :text "Cancelar preselección")
+      (label :class "keys-alt" :xalign 1 :text "Super + Alt + Barra espaciadora"))
+  )
+
+
+    (box :orientation "v" :space-evenly "false" :spacing 2
+  (box :orientation "h" :space-evenly "true"
+    (label :class "category-nodes" :xalign 0.5 :text "Nodos")
+    (label :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Cerrar Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Super + q"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Matar Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Super + Shift + q"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Configurar Nodo Flotante")
+    (label :class "keys-alt" :xalign 1 :text "Super + s"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Configurar Nodo Pseudo en mosaico")
+    (label :class "keys-alt" :xalign 1 :text "Super + Shift + t"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Configurar Nodo en Mosaico")
+    (label :class "keys-alt" :xalign 1 :text "Super + t"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Configurar Nodo en Pantalla Completa")
+    (label :class "keys-alt" :xalign 1 :text "Super + f"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "")
+    (label :class "keys-alt" :xalign 1 :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Marcar Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + m"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Bloquear Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + x"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Nodo Pegajoso")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + s"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Nodo Privado")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + p"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Ocultar/Mostrar Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + h"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "")
+    (label :class "keys-alt" :xalign 1 :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Cambiar Enfoque de Nodo")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Super +    "))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Intercambiar Nodos")
+    (label :class "keys-alt" :xalign 1 :text "Shift Super Ctrl +    "))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "")
+    (label :class "keys-alt" :xalign 1 :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Enviar a otro espacio de trabajo")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + 1-9"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Enviar a otro espacio de trabajo y seguir")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt +  "))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Enfocar último Nodo/Espacio de trabajo")
+    (label :class "keys-alt" :xalign 1 :text "Super + {coma,tab}"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "category-move" :xalign 0.5 :text "Mover/Redimensionar")
+    (label :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Expandir nodo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt +    "))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Contraer nodo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl Shift Alt    "))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Mover nodo flotante")
+    (label :class "keys-alt" :xalign 1 :text "Alt + Shift +    "))
+)
+
+
+   (box :orientation "v" :space-evenly "false" :spacing 2
+  (box :orientation "h" :space-evenly "true"
+    (label :class "category-workspaces" :xalign 0.5 :text "Aplicaciones de Dotfiles")
+    (label :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Scratchpad")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + o"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Ocultar/Mostrar Polybar")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + {h,u}"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Cambiar transparencia")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Alt + {+,-,t}"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Administrador de Red")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + n"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Captura de Pantalla")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + s"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Bluetooth")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + b"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Portapapeles")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + c"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Montaje de Android")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + a"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Menú de energía")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + p"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Cambiar distribución del teclado")
+    (label :class "keys-alt" :xalign 1 :text "Super + Alt + k"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "category-apps" :xalign 0.5 :text "Aplicaciones")
+    (label :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Navegador")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + b"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Administrador de Archivos")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + n"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Editor")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + g"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Ranger")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + r"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Ncmpcpp")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + k"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Pavucontrol")
+    (label :class "keys-alt" :xalign 1 :text "Shift + Alt + p"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "category-power" :xalign 0.5 :text "Energía")
+    (label :text ""))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Apagar PC")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Super + Alt + p"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Reiniciar PC")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Super + Alt + r"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Cerrar sesión")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Super + Alt + q"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Pantalla de bloqueo")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Super + Alt + l"))
+  (box :orientation "h" :space-evenly "true"
+    (label :class "keys" :xalign 0 :text "Matar aplicación")
+    (label :class "keys-alt" :xalign 1 :text "Ctrl + Super + Alt + k"))
+)
+
+  )
+)
+
+
+
+
+
+;; Window cheatsheet ;;
+(defwindow csheet
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :anchor "center")
+    :wm-ignore false
+    (cheatsheet))
+
